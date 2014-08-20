@@ -1,0 +1,18 @@
+﻿<header class="bar bar-nav">
+    <button class="btn pull-right" ng-click="ctrl.login()">
+        <span class="icon icon-check"></span>
+    </button>    
+    <h1 class="title">{{ ctrl.title }}</h1>
+</header>
+<div class="content">
+    <div class="content-padded">
+        <form>
+            <label>{{ ctrl.userLogin.properties.email.displayName }}</label>
+            <p class="error-message" ng-repeat="errorMessage in ctrl.userLogin.properties.email.errorMessages"> {{ errorMessage }}</p>
+            <input type="email" ng-model="ctrl.userLogin.properties.email.value" />            
+            <label>{{ ctrl.userLogin.properties.password.displayName }}</label>
+            <p class="error-message" ng-repeat="errorMessage in ctrl.userLogin.properties.password.errorMessages"> {{ errorMessage }}</p>
+            <input type="password" ng-model="ctrl.userLogin.properties.password.value" />            
+        </form>
+    </div>    
+</div>
