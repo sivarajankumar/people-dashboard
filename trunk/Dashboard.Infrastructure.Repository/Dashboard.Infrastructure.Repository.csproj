@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C029D4D2-B29F-4A27-BC8D-0346FF039FBD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Dashboard.Infrastructure.Repository</RootNamespace>
+    <AssemblyName>Dashboard.Infrastructure.Repository</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Contexts\DashboardUnitOfWork.cs" />
+    <Compile Include="Contexts\Mapping\PhoneTypeMap.cs" />
+    <Compile Include="Contexts\Mapping\UserMap.cs" />
+    <Compile Include="Contexts\Mapping\UserPhoneMap.cs" />
+    <Compile Include="Implementations\UserRepository.cs" />
+    <Compile Include="Migrations\201408221233401_FirstCreation.cs" />
+    <Compile Include="Migrations\201408221233401_FirstCreation.Designer.cs">
+      <DependentUpon>201408221233401_FirstCreation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dashboard.Domain\Dashboard.Domain.csproj">
+      <Project>{273bb61c-1ef2-4460-8ce0-dbb2c7efdcc3}</Project>
+      <Name>Dashboard.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vianalk.Framework.SeeSharp.Domain\Vianalk.Framework.SeeSharp.Domain.csproj">
+      <Project>{e1477a4a-6a92-47aa-aedb-c8e4b8ab5590}</Project>
+      <Name>Vianalk.Framework.SeeSharp.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vianalk.Framework.SeeSharp.Infrastructure.Repository\Vianalk.Framework.SeeSharp.Infrastructure.Repository.csproj">
+      <Project>{9bfccb1f-4b51-4b8c-a4ad-da86941fe804}</Project>
+      <Name>Vianalk.Framework.SeeSharp.Infrastructure.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201408221233401_FirstCreation.resx">
+      <DependentUpon>201408221233401_FirstCreation.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
